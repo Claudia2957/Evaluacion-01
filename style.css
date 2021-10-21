@@ -2,24 +2,24 @@
 
 :root {
     --bs-body-font-family: 'Raleway', sans-serif;
-    --bs-body-font-size: 0.9rem;
+    --bs-body-font-size: 1.1rem;
     --bs-body-font-weight: 300;
     --bs-body-bg: #fff;
 }
 
 h1{
     font-weight: 600;
-    color: white; 
+    color: #fff; 
 }
 
 h2{
  font-weight: 400;   
- color: white;    
+ color: #fff;    
 }
 
 h3{
   font-weight: 400;
-  color: white;  
+  color: #fff;  
 }
 
 h4,
