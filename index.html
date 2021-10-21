@@ -122,16 +122,17 @@
                     });
 
                     new Chart(document.getElementById("misBarritas").getContext("2d"), {
-                        type: "bar",
                         data: {
                             labels: lospaises,
                             datasets: [
                                 {
+                                    type: "bar",
                                     data: loscasos,
                                     backgroundColor: "#f1a340",
                                     label: "Número de casos",
                                 },
                                 {
+                                    type: "line",
                                     data: latasa,
                                     backgroundColor: "#645294",
                                     label: "Tasa por cada 100000 habitantes",
