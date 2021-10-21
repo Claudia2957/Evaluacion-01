@@ -105,7 +105,6 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         ></script>
-        <!--con el siguiente script voy a buscar datos a un JSON y con ellos construyo un gráfico de barras-->
         <script>
                 fetch("https://myjson.dit.upm.es/api/bins/1w1z")
                 .then((response) => response.json())
@@ -128,14 +127,15 @@
                                 {
                                     type: "bar",
                                     data: loscasos,
-                                    backgroundColor: "#f1a340",
+                                    backgroundColor: "#645294",
                                     label: "Número de casos",
                                 },
                                 {
                                     type: "line",
                                     data: latasa,
-                                    backgroundColor: "#645294",
-                                    label: "Tasa por cada 100000 habitantes",
+                                    backgroundColor: "#fc4b08",
+                                    label: "Tasa por cada 100.000 habitantes",
+                                    borderWidth: 7
                                 },
                             ],
                         },
