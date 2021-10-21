@@ -107,22 +107,13 @@
         ></script>
         <!--con el siguiente script voy a buscar datos a un JSON y con ellos construyo un gráfico de barras-->
         <script>
-            var femicidios = [
-                { pais: "Bolivia", casos: 128, tasa: 2.3},
-                { pais: "Paraguay", casos: 59, tasa: 1.7},
-                { pais: "Uruguay", casos: 30, tasa: 1.7},
-                { pais: "México", casos: 898, tasa: 1.4},
-                { pais: "Ecuador", casos: 104, tasa: 1.3},
-                { pais: "Argentina", casos: 255, tasa: 1.1},
-                { pais: "Brasil", casos: 1206, tasa: 1.1},
-                { pais: "Perú", casos: 131, tasa: 0.8},
-                { pais: "Venezuela", casos: 122, tasa: 0.8},
-                { pais: "Colombia", casos: 159, tasa: 0.5},
-                { pais: "Chile", casos: 50, tasa: 0.5},
-              
-            ];
-
-            var lospaises=[], loscasos=[], latasa=[]
+                fetch("https://myjson.dit.upm.es/api/bins/1w1z")
+                .then((response) => response.json())
+                .then((femicidios) => {
+                    console.log(femicidios);
+                    var lospaises = [],
+                        loscasos = [],
+                        latasa = [];
             
                     femicidios.forEach((d) => {
                         lospaises.push(d.pais);
