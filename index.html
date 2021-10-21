@@ -18,15 +18,15 @@
         <header class="container-fluid" id="fondo-con-imagen">
             <div class="row h-100">
                 <div class="div text-center my-auto">
-                    <h1>Este es el título de primer nivel</h1>
-                    <h2>Esto es un título de segundo nivel</h2>
+                    <h1>Violencia hacia la mujer</h1>
+                    <h2>Estadísticas en Chile</h2>
                 </div>
             </div>
         </header>
         <section class="container py-3">
             <div class="row py-4">
                 <div class="col-sm-10 col-md-8 mx-auto">
-                    <p>A condición de demostrar su dominio de Bootstrap v5.1.3, el orden de contenidos que siguen en esta plantilla puede ser modificado. Entre los contenidos no deberían faltar aquellos que se solicitan en la <a href="https://github.com/profesorfaco/interaccion/tree/main/sesion_08#readme">pauta de evaluación</a>: un <strong>SVG</strong>, un <strong>gráfico resuelto con Charts.js</strong>, además de <strong>un "efecto de interacción"</strong> que ustedes pueden resolver mediante el uso de p5.js, jQuery o Bootstrap.js (bibliotecas de JavaScript que hemos usado en las sesiones pasadas).</p>
+                    <p>La violencia contra la mujer, especialmente la ejercida por su pareja y la violencia sexual, constituye un grave problema de salud pública y una violación de los derechos humanos de las mujeres. Las estimaciones mundiales publicadas por la OMS indican que alrededor de 1 de cada 3 mujeres en el mundo han sufrido violencia física y/o sexual de pareja o violencia sexual por terceros en algún momento de su vida.</p>
 
                     <canvas id="misBarritas" width="100" height="70" class="my-5"></canvas>
                     
@@ -83,34 +83,39 @@
         ></script>
         <!--con el siguiente script voy a buscar datos a un JSON y con ellos construyo un gráfico de barras-->
         <script>
-            fetch("https://myjson.dit.upm.es/api/bins/1wn3")
-                .then((response) => response.json())
-                .then((poblacion) => {
-                    console.log(poblacion);
-                    var lasRegiones = [],
-                        losHombres = [],
-                        lasMujeres = [];
+            var femicidios = [
+                { país: "Bolivia", casos: 128, tasa: 2.3}
+                { país: "Paraguay", casos: 59, tasa: 1.7}
+                { país: "Uruguay", casos: 30, tasa: 1.7}
+                { país: "México", casos: 898, tasa: 1.4}
+                { país: "Ecuador", casos: 104, tasa: 1.3}
+                { país: "Argentina", casos: 255, tasa: 1.1}
+                { país: "Brasil", casos: 1206, tasa: 1.1}
+                { país: "Perú", casos: 131, tasa: 0.8}
+                { país: "Venezuela", casos: 122, tasa: 0.8}
+                { país: "Colombia", casos: 159, tasa: 0.5}
+                { país: "Chile", casos: 50, tasa: 0.5}
 
-                    poblacion.forEach((d) => {
-                        lasRegiones.push(d.region);
-                        losHombres.push(d.hombres);
-                        lasMujeres.push(d.mujeres);
+                    femicidios.forEach((d) => {
+                        lospaises.push(d.region);
+                        loscasos.push(d.hombres);
+                        latasa.push(d.mujeres);
                     });
 
                     new Chart(document.getElementById("misBarritas").getContext("2d"), {
                         type: "bar",
                         data: {
-                            labels: lasRegiones,
+                            labels: lospaises,
                             datasets: [
                                 {
-                                    data: losHombres,
+                                    data: loscasos,
                                     backgroundColor: "#f1a340",
-                                    label: "Hombres",
+                                    label: "Número de casos",
                                 },
                                 {
-                                    data: lasMujeres,
+                                    data: latasa,
                                     backgroundColor: "#645294",
-                                    label: "Mujeres",
+                                    label: "Tasa por cada 100000 habitantes",
                                 },
                             ],
                         },
@@ -127,7 +132,7 @@
                             plugins: {
                                 title: {
                                     display: true,
-                                    text: "POBLACIÓN: POR SEXO Y REGIONES, CENSO 2017",
+                                    text: "FEMICIDIOS EN SUDAMERICA 2018",
                                 },
                             },
                         },
